@@ -1,0 +1,32 @@
+<ng-container *ngIf="product$ | async as product">
+  <mat-card>
+    <div
+      style="
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 24px;
+        align-items: start;
+      "
+    >
+      <img
+        [src]="product.image"
+        [alt]="product.title"
+        style="
+          width: 100%;
+          max-width: 380px;
+          justify-self: center;
+          object-fit: contain;
+          background: white;
+        "
+      />
+      <div>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <h3>R$ {{ product.price | number : "1.2-2" }}</h3>
+        <button mat-raised-button color="primary" (click)="add(product)">
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</ng-container>

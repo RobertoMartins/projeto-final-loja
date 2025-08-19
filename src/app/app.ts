@@ -1,12 +1,19 @@
-import { Component, signal } from '@angular/core';
+import { Component, ViewChild, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
+import { NavbarComponent } from './shared/components/navbar/navbar';
+import { CartComponent } from './features/cart/cart.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [RouterOutlet, MatSidenavModule, NavbarComponent, CartComponent],
+  templateUrl: './app.component.html',
 })
-export class App {
-  protected readonly title = signal('projeto-final-loja');
+export class AppComponent {
+  cartOpened = signal(false);
+  @ViewChild('endDrawer') endDrawer!: MatSidenav;
+
+  openCart = () => this.endDrawer.open();
+  closeCart = () => this.endDrawer.close();
 }

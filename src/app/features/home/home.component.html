@@ -1,0 +1,22 @@
+<ng-container *ngIf="products$ | async as products; else loading">
+  <div
+    style="
+      padding: 90px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 40px;
+    "
+  >
+    <app-product-card
+      *ngFor="let p of products"
+      [product]="p"
+      (addToCart)="add($event)"
+    ></app-product-card>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div style="display: flex; justify-content: center; padding: 48px">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+</ng-template>

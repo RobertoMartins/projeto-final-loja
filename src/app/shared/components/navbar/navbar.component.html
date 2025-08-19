@@ -1,0 +1,47 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [routerLink]="['/home']" aria-label="home">
+    <mat-icon>storefront</mat-icon>
+  </button>
+  <span
+    class="brand"
+    [routerLink]="['/home']"
+    style="cursor: pointer; margin-left: 8px"
+    >Angular Store</span
+  >
+  <span class="spacer"></span>
+
+  <a mat-button [routerLink]="['/home']">Produtos</a>
+  <a mat-button [routerLink]="['/admin']">Admin</a>
+
+  <button
+    mat-icon-button
+    (click)="openCart.emit()"
+    [matBadge]="cart.totalItems()"
+    matBadgeOverlap="false"
+    aria-label="carrinho"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="userMenu">
+    <mat-icon>account_circle</mat-icon>
+    @if (auth.isLoggedIn()) {
+    <span>Minha conta</span>
+    } @else{
+    <ng-template #visitante>Visitante</ng-template>
+    }
+  </button>
+
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item *ngIf="!auth.isLoggedIn()" [routerLink]="['/login']">
+      <mat-icon>login</mat-icon>
+      <span>Entrar</span>
+    </button>
+    @if (auth.isLoggedIn()) {
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Sair</span>
+    </button>
+    }
+  </mat-menu>
+</mat-toolbar>

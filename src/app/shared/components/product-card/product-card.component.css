@@ -1,0 +1,23 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-content h3 {
+  font-size: 14px;
+  line-height: 1.2;
+  height: 34px;
+  overflow: hidden;
+}
+
+mat-card img {
+  object-fit: contain;
+  height: 200px;
+  background: white;
+}

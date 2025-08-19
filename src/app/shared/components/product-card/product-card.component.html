@@ -1,0 +1,23 @@
+<mat-card class="product-card">
+  <div class="img">
+    <a [routerLink]="['/product', product.id]">
+      <img mat-card-image [src]="product.image" [alt]="product.title" />
+    </a>
+  </div>
+
+  <mat-card-content>
+    <a
+      [routerLink]="['/product', product.id]"
+      style="text-decoration: none; color: inherit"
+    >
+      <h3>{{ product.title }}</h3>
+      <p>R$ {{ product.price | number : "1.2-2" }}</p>
+    </a>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="addToCart.emit(product)" style="width: 100%;">
+      Adicionar ao Carrinho
+    </button>
+  </mat-card-actions>
+</mat-card>
