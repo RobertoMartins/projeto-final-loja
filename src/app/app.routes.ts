@@ -26,11 +26,11 @@ export const APP_ROUTES: Routes = [
     loadComponent: () =>
       import('./features/cart/cart.component').then((m) => m.CartComponent),
   },
-  /*  {
+  {
     path: 'admin',
     canActivate: [canActivateAuth],
     loadChildren: () =>
       import('./admin/admin.routes').then((m) => m.ADMIN_ROUTES),
-  },*/
+  },
   { path: '**', redirectTo: 'home' },
 ];

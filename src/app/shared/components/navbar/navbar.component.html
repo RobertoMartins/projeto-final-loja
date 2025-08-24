@@ -13,35 +13,37 @@
   <a mat-button [routerLink]="['/home']">Produtos</a>
   <a mat-button [routerLink]="['/admin']">Admin</a>
 
-  <button
-    mat-icon-button
-    (click)="openCart.emit()"
-    [matBadge]="cart.totalItems()"
-    matBadgeOverlap="false"
-    aria-label="carrinho"
-  >
-    <mat-icon>shopping_cart</mat-icon>
-  </button>
-
-  <button mat-button [matMenuTriggerFor]="userMenu">
-    <mat-icon>account_circle</mat-icon>
-    @if (auth.isLoggedIn()) {
-    <span>Minha conta</span>
-    } @else{
-    <ng-template #visitante>Visitante</ng-template>
-    }
-  </button>
-
-  <mat-menu #userMenu="matMenu">
-    <button mat-menu-item *ngIf="!auth.isLoggedIn()" [routerLink]="['/login']">
-      <mat-icon>login</mat-icon>
-      <span>Entrar</span>
+  <div class="btns">
+    <button
+      mat-icon-button
+      (click)="openCart.emit()"
+      [matBadge]="cart.totalItems()"
+      aria-label="carrinho"
+    >
+      <mat-icon>shopping_cart</mat-icon>
     </button>
-    @if (auth.isLoggedIn()) {
-    <button mat-menu-item (click)="logout()">
-      <mat-icon>logout</mat-icon>
-      <span>Sair</span>
+
+    <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+      @if (auth.isLoggedIn()) {
+      <span>Minha conta</span>
+      } @else{
+      <span>Visitante</span>
+      }
     </button>
-    }
-  </mat-menu>
+
+    <mat-menu #userMenu="matMenu">
+      @if (!auth.isLoggedIn()) {
+      <button mat-menu-item [routerLink]="['/login']">
+        <mat-icon>login</mat-icon>
+        <span>Entrar</span>
+      </button>
+      } @else {
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </button>
+      }
+    </mat-menu>
+  </div>
 </mat-toolbar>

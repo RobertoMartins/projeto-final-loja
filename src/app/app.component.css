@@ -17,6 +17,9 @@ body {
   padding: 16px;
 }
 
+.cart{
+  padding: 15px !important;
+}
 .spacer {
   flex: 1 1 auto;
 }

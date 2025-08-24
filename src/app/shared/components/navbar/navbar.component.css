@@ -1,3 +1,13 @@
 .brand {
   font-weight: 500;
 }
+
+.btns {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.btns button {
+  margin-left: 20px;
+}

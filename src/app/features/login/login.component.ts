@@ -22,7 +22,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   fb = inject(FormBuilder);
   auth = inject(AuthService);
-  r = inject(Router);
+  router = inject(Router);
 
   form = this.fb.group({
     username: '',
@@ -32,7 +32,7 @@ export class LoginComponent {
   submit() {
     this.auth.login(this.form.value as any).subscribe((res) => {
       this.auth.setToken(res.token);
-      this.r.navigate(['/home']);
+      this.router.navigate(['/home']);
     });
   }
 }

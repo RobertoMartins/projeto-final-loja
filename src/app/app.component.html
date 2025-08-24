@@ -1,4 +1,4 @@
-<mat-sidenav-container style="height:100vh;">
+<mat-sidenav-container style="height: 100vh">
   <mat-sidenav-content>
     <app-navbar (openCart)="openCart()"></app-navbar>
     <main class="container">
@@ -6,7 +6,12 @@
     </main>
   </mat-sidenav-content>
 
-  <mat-sidenav #endDrawer mode="over" position="end" style="width: 420px;">
+  <mat-sidenav
+    #endDrawer
+    mode="over"
+    position="end"
+    style="width: 420px; padding: 20px;"
+  >
     <app-cart (closed)="closeCart()"></app-cart>
   </mat-sidenav>
 </mat-sidenav-container>
