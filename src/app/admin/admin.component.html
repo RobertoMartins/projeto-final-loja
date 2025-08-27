@@ -1,2 +1,14 @@
-<h2>Área Administrativa</h2>
+<div style="padding: 20px">
+  <button
+    mat-raised-button
+    [color]="showForm() ? 'warn' : 'primary'"
+    (click)="toggleForm()"
+  >
+    {{ showForm() ? "Cancelar" : "Novo Produto" }}
+  </button>
+  @if (showForm()) {
+  <app-product-form (saved)="onProductSaved()"></app-product-form>
+  }
+</div>
+
 <app-product-table></app-product-table>

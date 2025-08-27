@@ -1,59 +1,61 @@
-# ProjetoFinalLoja
+# 🛍️ Angular E-commerce App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+Este projeto é uma aplicação **Angular 16+** standalone utilizando **Angular Material** para interface.  
+Foi desenvolvido como um protótipo de e-commerce com funcionalidades de **catálogo de produtos, carrinho de compras e área administrativa**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Funcionalidades
+
+### 👤 Autenticação
+- Login via [FakeStoreAPI](https://fakestoreapi.com/).
+- Armazenamento de token JWT no `localStorage`.
+- Decodificação do token para obter o **nome do usuário**.
+- **Regra de admin:** se o usuário logado tiver `username = "johnd"`, ele é considerado **Administrador**.
+
+### 🛒 Catálogo e Carrinho
+- Listagem de produtos na página inicial.
+- Exibição de **detalhes do produto**.
+- Adição de produtos ao carrinho.
+- Exibição do carrinho em **sidenav**.
+- **Snackbar** ao adicionar itens, confirmando a ação.
+- Cálculo automático de **total de itens** e **valor total**.
+
+### 🧭 Navbar
+- Navegação entre páginas (Home, Carrinho, Login, Admin).
+- Exibição do usuário logado.
+- Botão **Logout**.
+
+### 🔒 Guardas e Interceptores
+- `auth.guard.ts`: protege rotas autenticadas.
+- `auth.interceptor.ts`: adiciona token JWT automaticamente no `Authorization Header`.
+
+### ⚙️ Área Administrativa
+- Disponível somente para **usuário admin (username: johnd)**.
+- Listagem de produtos em tabela (`MatTable`).
+- Exclusão de produtos.
+- Criação de novos produtos:
+  - Formulário reativo com validação.
+  - Botão "Novo Produto" / "Cancelar" controla exibição do formulário.
+  - Snackbar ao salvar com sucesso.
+  - Atualização automática da tabela após salvar.
+
+---
+
+## 🖥️ Tecnologias
+- **Angular 16+** (standalone components + signals)
+- **Angular Material** (UI/UX)
+- **RxJS**
+- **jwt-decode** (decodificação do JWT)
+- **FakeStoreAPI** (mock de dados e autenticação)
+
+---
+
+## ▶️ Como rodar
 
 ```bash
+# instalar dependências
+npm install
+
+# rodar servidor dev
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

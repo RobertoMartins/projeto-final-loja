@@ -11,7 +11,9 @@
   <span class="spacer"></span>
 
   <a mat-button [routerLink]="['/home']">Produtos</a>
+  @if (isAdmin()) {
   <a mat-button [routerLink]="['/admin']">Admin</a>
+  }
 
   <div class="btns">
     <button
@@ -38,7 +40,7 @@
         <mat-icon>login</mat-icon>
         <span>Entrar</span>
       </button>
-      } @else {
+      } @else { Olá, {{ userName() }}
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Sair</span>

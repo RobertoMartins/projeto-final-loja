@@ -26,6 +26,8 @@ export class NavbarComponent {
   @Output() openCart = new EventEmitter<void>();
   auth = inject(AuthService);
   cart = inject(CartService);
+  userName = this.auth.getUserName();
+  isAdmin = this.auth.isAdmin;
 
   logout() {
     this.auth.logout();

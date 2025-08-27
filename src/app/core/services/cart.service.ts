@@ -1,10 +1,12 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, signal, inject } from '@angular/core';
 import { CartItem } from '../models/cart.model';
 import { Product } from '../models/product.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
   items = signal<CartItem[]>([]);
+  private snack = inject(MatSnackBar);
 
   totalItems = computed(() =>
     this.items().reduce((acc, i) => acc + i.quantity, 0)
@@ -23,6 +25,11 @@ export class CartService {
       arr.push({ product, quantity: qty });
     }
     this.items.set(arr);
+
+    // ✅ feedback para o usuário
+    this.snack.open(`${product.title} adicionado ao carrinho!`, 'Fechar', {
+      duration: 3000,
+    });
   }
 
   remove(productId: number) {

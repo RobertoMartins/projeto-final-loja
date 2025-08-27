@@ -13,6 +13,7 @@ import {
   provideAnimations,
 } from '@angular/platform-browser/animations';
 import { APP_ROUTES } from './app.routes';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,5 +25,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptorsFromDi()),
     importProvidersFrom(BrowserAnimationsModule),
     provideAnimations(),
+    importProvidersFrom(MatSnackBarModule),
   ],
 };

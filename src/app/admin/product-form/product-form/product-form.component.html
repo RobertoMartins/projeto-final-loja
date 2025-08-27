@@ -1,0 +1,26 @@
+<mat-card>
+  <h3>Criar Produto</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Preço</mat-label>
+      <input type="number" matInput formControlName="price" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Categoria</mat-label>
+      <input matInput formControlName="category" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Salvar</button>
+  </form>
+</mat-card>

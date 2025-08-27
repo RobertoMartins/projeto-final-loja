@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [DecimalPipe, MatTableModule, MatButtonModule],
   templateUrl: './product-table.component.html',
+  styleUrl:'./product-table.component.css'
 })
 export class ProductTableComponent {
   private ps = inject(ProductService);
