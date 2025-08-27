@@ -18,3 +18,8 @@
 .formulario mat-form-field {
   min-width: 400px !important;
 }
+
+.usuarios-test{
+  width: 100%;
+  text-align: center;
+}
